@@ -76,6 +76,14 @@ a {
     border: 1px solid black;
 }
 
+.slideshow-container{
+    width: 100%; 
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .left-align {
     width: auto;
     justify-content: flex-start;
