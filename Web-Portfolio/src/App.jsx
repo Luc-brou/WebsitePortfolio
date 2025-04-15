@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import About from './components/AboutPage';
+import Languages from './components/LanguagesPage';
+import Header from './components/Header';
 
 function App() {
-  const [count, setCount] = useState(0)
+  try {
+    return (
+      <div className="bg-primary text-white p-4">
+        <Header />
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/recipes" element={<About />} />
+          <Route path="/languages" element={<Languages />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  } catch (error) {
+    console.error('Error rendering app:', error);
+    return <h1>Error Rendering App. Check The Console.</h1>;
+  }
 }
 
-export default App
+export default App;
